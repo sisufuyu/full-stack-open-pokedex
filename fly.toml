@@ -44,13 +44,6 @@ kill_timeout = 5
     restart_limit = 0
     timeout = "2s"
     tls_skip_verify = false
-  
-  [[services.script_checks]]
-    grace_period = "5s"
-    interval = "5s"
-    restart_limit=0
-    timeout="5s"
-    command="./health_check.sh"
 
 [deploy]
   release_command = "npm run build"

@@ -3,7 +3,6 @@
 app = "fullstackopen-cicd-pokedex"
 kill_signal = "SIGINT"
 kill_timeout = 5
-processes = []
 
 [env]
   PORT = "8080"
@@ -45,14 +44,13 @@ processes = []
     restart_limit = 0
     timeout = "2s"
     tls_skip_verify = false
-
+  
   [[services.script_checks]]
-    command="./health_check.sh"
-    grace_period = "3s"
-    restart_limit = 0
-    timeout = "2s"
+    grace_period = "5s"
     interval = "5s"
-
+    restart_limit=0
+    timeout="5s"
+    command="./health_check.sh"
 
 [deploy]
   release_command = "npm run build"
